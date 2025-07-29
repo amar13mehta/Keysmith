@@ -6,7 +6,6 @@ import Image from "next/image";
 import { InfoDialog } from "./info-dialog";
 import { LeaderboardDialog } from "./leaderboard-dialog";
 import Link from "next/link";
-import { SettingsDialog } from "./settings-dialog";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useTypingStore } from "@/lib/store";
 

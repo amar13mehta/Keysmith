@@ -9,7 +9,7 @@ import {
   YAxis,
 } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Download, RotateCcw, Save } from "lucide-react";
+import { Download, RotateCcw } from "lucide-react";
 import {
   TooltipContent,
   TooltipProvider,
@@ -85,7 +85,6 @@ export function TypingResults({ onRestart, snippet }: TypingResultsProps) {
     | undefined;
   const resetStats = useTypingStore((state) => state.resetStats);
   const { session } = useAuthStore();
-  const [isSaving, setIsSaving] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const { theme } = useTheme();
   const resultsRef = useRef<HTMLDivElement>(null);
@@ -134,7 +133,6 @@ export function TypingResults({ onRestart, snippet }: TypingResultsProps) {
       return;
     }
 
-    setIsSaving(true);
     try {
       const response = await fetch("/api/typing-results", {
         method: "POST",
@@ -170,7 +168,6 @@ export function TypingResults({ onRestart, snippet }: TypingResultsProps) {
         error instanceof Error ? error.message : "Failed to save results"
       );
     } finally {
-      setIsSaving(false);
     }
   };
 
