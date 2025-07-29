@@ -7,7 +7,6 @@ import { codeSnippets } from "@/lib/code-snippets";
 export async function generateStaticParams() {
   const paths: { category: string; keyword: string }[] = [];
 
-  // Get all unique categories and their keywords
   const categoryKeywords = new Map<string, Set<string>>();
 
   codeSnippets.forEach((snippet) => {
