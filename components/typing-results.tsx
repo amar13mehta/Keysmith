@@ -125,49 +125,49 @@ export function TypingResults({ onRestart, snippet }: TypingResultsProps) {
     return `${stats.characters.correct}/${stats.totalErrors}/${stats.characters.extra}/${stats.characters.missed}`;
   };
 
-  const handleSave = async () => {
-    if (!session?.user?.id) {
-      setShowSettings(true);
-      return;
-    }
+  // const handleSave = async () => {
+  //   if (!session?.user?.id) {
+  //     setShowSettings(true);
+  //     return;
+  //   }
 
-    try {
-      const response = await fetch("/api/typing-results", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          snippetId: snippet.id,
-          language: snippet.language,
-          wpm: lastWPM,
-          raw: lastRaw,
-          accuracy: stats.accuracy,
-          time: timeTaken,
-          characters: {
-            correct: stats.characters.correct,
-            incorrect: stats.totalErrors,
-            extra: stats.characters.extra,
-            missed: stats.characters.missed,
-          },
-          testType: snippet.name,
-        }),
-      });
+  //   try {
+  //     const response = await fetch("/api/typing-results", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         snippetId: snippet.id,
+  //         language: snippet.language,
+  //         wpm: lastWPM,
+  //         raw: lastRaw,
+  //         accuracy: stats.accuracy,
+  //         time: timeTaken,
+  //         characters: {
+  //           correct: stats.characters.correct,
+  //           incorrect: stats.totalErrors,
+  //           extra: stats.characters.extra,
+  //           missed: stats.characters.missed,
+  //         },
+  //         testType: snippet.name,
+  //       }),
+  //     });
 
-      if (!response.ok) {
-        const error = await response.text();
-        throw new Error(error || "Failed to save results");
-      }
+  //     if (!response.ok) {
+  //       const error = await response.text();
+  //       throw new Error(error || "Failed to save results");
+  //     }
 
-      toast.success("Results saved successfully!");
-    } catch (error) {
-      console.error("Error saving results:", error);
-      toast.error(
-        error instanceof Error ? error.message : "Failed to save results"
-      );
-    } finally {
-    }
-  };
+  //     toast.success("Results saved successfully!");
+  //   } catch (error) {
+  //     console.error("Error saving results:", error);
+  //     toast.error(
+  //       error instanceof Error ? error.message : "Failed to save results"
+  //     );
+  //   } finally {
+  //   }
+  // };
 
   const handleDownload = async () => {
     if (!resultsRef.current || !stats) {
