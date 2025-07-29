@@ -92,10 +92,8 @@ export function TypingResults({ onRestart, snippet }: TypingResultsProps) {
 
   if (!stats?.isComplete) return null;
 
-  // Create data points only until completion time
   const time = stats?.time ?? 0;
   const chartData = Array.from({ length: Math.ceil(time) }, (_, index) => {
-    // Only include data points up to the actual completion time
     if (index + 1 > time) return null;
     return {
       time: index + 1,
