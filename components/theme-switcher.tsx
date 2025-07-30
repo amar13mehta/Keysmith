@@ -60,11 +60,11 @@ export function ThemeSwitcher() {
                       <div className="flex flex-col">
                         <div className="flex items-center gap-1">
                           <span className="text-sm font-medium">{t.name}</span>
-                          {t.author && (
+                          {/* {t.author && (
                             <span className="text-xs text-muted-foreground">
                               by {t.author}
                             </span>
-                          )}
+                          )} */}
                         </div>
                       </div>
                     </div>
