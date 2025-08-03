@@ -31,9 +31,12 @@ export function Header({ onRestart }: HeaderProps) {
           />
         </button>
         {isMobile ? (
-          <div className="flex items-center">
-            <InfoDialog />
-          </div>
+          <Link href="https://github.com/amar13mehta" target="_blank">
+            <Button variant="ghost" size="icon" aria-label="View on GitHub">
+              <GithubIcon className="h-5 w-5" />
+              <span className="sr-only">Github</span>
+            </Button>
+          </Link>
         ) : (
           <div className="flex items-center space-x-2">
             <LeaderboardDialog />
