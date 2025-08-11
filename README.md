@@ -1,5 +1,5 @@
-# [KeySmith](https://key-smith.vercel.app/)
-# Keysmith - A Typing Practice App
+# [Keysmith - A Typing Practice App](https://key-smith.vercel.app/)
+
 
 A modern, customizable typing practice application with multiple themes and coding snippets.
 
